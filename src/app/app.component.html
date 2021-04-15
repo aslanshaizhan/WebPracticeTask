@@ -1,0 +1,43 @@
+<form #courseForm="ngForm" (ngSubmit)="onSubmit(courseForm)">
+
+  <p>
+    <label for="firstname">First Name </label>
+    <input type="text" id="firstname" name="firstname" [(ngModel)]="course.firstname">
+  </p>
+
+  <p>
+    <label for="lastname">Last Name </label>
+    <input type="text" id="lastname" name="lastname" [(ngModel)]="course.lastname">
+  </p>
+
+  <p>
+    <label for="email">Email </label>
+    <input type="text" id="email" name="email"  [(ngModel)]="course.email">
+  </p>
+
+  <p>
+    <label for="course">Course </label>
+    <select id="course" name="country" [(ngModel)]="course.courseID">
+      <option [ngValue]="c.id" *ngFor="let c of courseList">
+        {{c.name}}
+      </option>
+    </select>
+  </p>
+
+  <p>
+    <button type="submit">Submit</button>
+  </p>
+
+  <p>
+    <button type="button" (click)="changeCourse()">Change Course</button>
+    <button type="button" (click)="setDefaults()">Set Defaults</button>
+    <button type="button" (click)="reset(courseForm)">Reset</button>
+  </p>
+
+  <b>valid</b> {{courseForm.valid}}
+  <b>touched</b> {{courseForm.touched}}
+
+</form>
+<div>
+  <app-drive-form></app-drive-form>
+</div>

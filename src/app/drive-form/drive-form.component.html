@@ -1,0 +1,45 @@
+<h1>Child Component: Using Template reference variable</h1>
+<form #courseForm="ngForm" (ngSubmit)="onSubmit(courseForm)">
+
+  <p>
+    <label for="firstname">First Name </label>
+    <input type="text" id="firstname" name="firstname" ngModel>
+  </p>
+
+  <p>
+    <label for="lastname">Last Name </label>
+    <input type="text" id="lastname" name="lastname" ngModel>
+  </p>
+
+  <p>
+    <label for="email">Email </label>
+    <input type="text" id="email" name="email"  ngModel>
+  </p>
+
+  <p>
+    <label for="course">course </label>
+    <select id="course" name="course" ngModel>
+      <option [ngValue]="c.id" *ngFor="let c of courseList">
+        {{c.name}}
+      </option>
+    </select>
+
+  </p>
+
+  <p>
+    <button type="submit">Submit</button>
+  </p>
+
+  <p>
+    <button type="button" (click)="changeCountry()">Change Course</button>
+    <button type="button" (click)="setDefaults()">Set Defaults</button>
+    <button type="button" (click)="patchValue()">Patch Value</button>
+    <button type="button" (click)="reset()">Reset</button>
+    <button type="button" (click)="resetForm()">Reset Form</button>
+  </p>
+
+  <b>valid</b> {{courseForm.valid}}
+  <b>touched</b> {{courseForm.touched}}
+
+</form>
+
